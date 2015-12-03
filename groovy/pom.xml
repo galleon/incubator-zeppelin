@@ -27,14 +27,13 @@
   </parent>
 
   <groupId>org.apache.zeppelin</groupId>
-  <artifactId>zeppelin-spark</artifactId>
+  <artifactId>zeppelin-groovy</artifactId>
   <packaging>jar</packaging>
   <version>0.6.0-incubating-SNAPSHOT</version>
   <name>Zeppelin: Groovy</name>
   <description>Groovy (spark) support</description>
   <url>http://zeppelin.incubator.apache.org</url>
-  
-<!--
+
   <properties>
     <spark.version>1.4.1</spark.version>
     <scala.version>2.10.4</scala.version>
@@ -42,8 +41,8 @@
 
     <hadoop.version>2.3.0</hadoop.version>
     <py4j.version>0.8.2.1</py4j.version>
+    <groovy.version>2.4.5</groovy.version>
   </properties>
--->
 
   <dependencies>
     <dependency>
@@ -63,10 +62,9 @@
     </dependency>
 
     <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>zeppelin-spark-dependencies</artifactId>
-      <version>${project.version}</version>
-      <scope>provided</scope>
+      <groupId>org.apache.ivy</groupId>
+      <artifactId>ivy</artifactId>
+      <version>2.4.0</version>
     </dependency>
 
     <dependency>
@@ -95,6 +93,7 @@
         </exclusion>
       </exclusions>
     </dependency>
+
     <dependency>
       <groupId>org.sonatype.aether</groupId>
       <artifactId>aether-api</artifactId>
@@ -275,11 +274,10 @@
     </dependency>
 
     <dependency>
-      <groupId>net.sf.py4j</groupId>
-      <artifactId>py4j</artifactId>
-      <version>${py4j.version}</version>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>${groovy.version}</version>
     </dependency>
-
 
     <!--TEST-->
     <dependency>
@@ -404,7 +402,7 @@
               <goal>copy</goal>
             </goals>
             <configuration>
-              <outputDirectory>${project.build.directory}/../../interpreter/spark</outputDirectory>
+              <outputDirectory>${project.build.directory}/../../interpreter/groovy</outputDirectory>
               <overWriteReleases>false</overWriteReleases>
               <overWriteSnapshots>false</overWriteSnapshots>
               <overWriteIfNewer>true</overWriteIfNewer>

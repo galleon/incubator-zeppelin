@@ -88,6 +88,7 @@
     <module>zeppelin-zengine</module>
     <module>spark-dependencies</module>
     <module>spark</module>
+    <module>groovy</module>
     <module>markdown</module>
     <module>angular</module>
     <module>shell</module>
